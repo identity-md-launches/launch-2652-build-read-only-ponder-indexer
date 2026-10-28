@@ -1,0 +1,13 @@
+RPC chainId=1; range=26293890-26294150; filters=9; chunk=500
+GraphQL page 1: 13 rows; hasNextPage=false
+RPC PLEA: 7 logs
+RPC CabalGate: 1 logs
+RPC Seasons: 0 logs
+RPC PleaDistributor: 1 logs
+RPC PleaLaunch: 3 logs
+RPC Letterbox: 0 logs
+RPC Tribunal: 1 logs
+RPC PleaHook: 0 logs
+RPC Stacker: 0 logs
+_meta.status: {"mainnet":{"id":1,"block":{"number":26294309,"timestamp":1793227547}}}
+MATCH: 13 logs; all 12 queried fields equal; 1 GraphQL page(s); numeric (blockNumber, logIndex) order.

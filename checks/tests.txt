@@ -1,0 +1,35 @@
+
+> plea-raw-logs@1.0.0 test /tmp/plea-offline
+> node --test tests/*.test.mjs
+
+✔ all verified events have exactly one handler; ABIs equal saved Sourcify metadata (12.512146ms)
+✔ deployment overrides are validated and Stacker follows the hook override (1.322688ms)
+✔ comparator detects every changed field, extra rows, and missing rows (2.869341ms)
+✔ RPC refused ranges split inclusively without gaps, and single-block truncation fails (1.886021ms)
+✔ GraphQL errors and a checkpoint behind the range cannot pass as an empty match (62.519139ms)
+✔ GraphQL repeated cursors fail instead of looping forever (11.244589ms)
+RPC chainId=1; range=26294150-26294150; filters=9; chunk=500
+GraphQL page 1: 1000 rows; hasNextPage=true
+GraphQL page 2: 1000 rows; hasNextPage=true
+GraphQL page 3: 5 rows; hasNextPage=false
+RPC PLEA: 1956 logs
+RPC CabalGate: 10 logs
+RPC Seasons: 8 logs
+RPC PleaDistributor: 4 logs
+RPC PleaLaunch: 4 logs
+RPC Letterbox: 4 logs
+RPC Tribunal: 6 logs
+RPC PleaHook: 12 logs
+RPC Stacker: 1 logs
+_meta.status: {"mainnet":{"id":1,"block":{"number":26294175,"timestamp":1793225300}}}
+MATCH: 2005 logs; all 12 queried fields equal; 3 GraphQL page(s); numeric (blockNumber, logIndex) order.
+PASS: 57 event types, topic1 exclusion, null/four topics, CORS, read-only SQL, restart persistence.
+✔ actual Ponder: all 57 events, 2,005 rows, three GraphQL pages, CORS, SQL, restart (12765.789852ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13197.53426

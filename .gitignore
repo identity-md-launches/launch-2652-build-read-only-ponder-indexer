@@ -1,0 +1,10 @@
+node_modules/
+.pnpm-store/
+vendor/
+.ponder/
+generated/
+.env*
+.build-id
+test/scratch/
+*.log
+.DS_Store

@@ -1,0 +1,10 @@
+Source export size check: PASS
+Files: 57
+Uncompressed file bytes (including this record): 883609
+Upload limit: 8388608 bytes (8 MiB)
+Archive payloads in release: 0
+Excluded: supplied .imd inputs, repository/tool metadata, installed/cache data, test/scratch.
+The scratch directory is disposable and is removed before submission.
+PASS: all dependency versions and integrity hashes unchanged; 189 local tarball paths removed.
+PASS: install, codegen, typecheck, seven tests; see release-checks.txt.
+Limitation: fresh package installs need registry access or a populated package store.

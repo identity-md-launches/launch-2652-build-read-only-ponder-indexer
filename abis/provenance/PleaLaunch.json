@@ -1,0 +1,1558 @@
+{
+  "abi": [
+    {
+      "type": "constructor",
+      "inputs": [
+        {
+          "name": "plea_",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "gate_",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "seasons_",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "distributor_",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "poolManager_",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "imd_",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "stacker_",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "creditGas_",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "start_",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "oracleAsset_",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "mintOracleFee_",
+          "type": "bool",
+          "internalType": "bool"
+        },
+        {
+          "name": "letterboxCodeHash_",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "tribunalCodeHash_",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "name": "BelowAgreedMarketCap",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "BelowAgreedTiming",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "HookAlreadyDeployed",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "HookDeployFailed",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "HookNotDeployed",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "LetterboxAlreadyDeployed",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "LetterboxDeployFailed",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "LetterboxNotDeployed",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "MintWithPoolImd",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "OracleAssetMismatch",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "OracleAssetNotImd",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "TooEarly",
+      "type": "error",
+      "inputs": [
+        {
+          "name": "start",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "name": "TribunalAlreadyDeployed",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "TribunalDeployFailed",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "TribunalNotDeployed",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "TribunalOff",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "WrongFlags",
+      "type": "error",
+      "inputs": [
+        {
+          "name": "hook",
+          "type": "address",
+          "internalType": "address"
+        }
+      ]
+    },
+    {
+      "name": "WrongInitCode",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "HookDeployed",
+      "type": "event",
+      "inputs": [
+        {
+          "name": "hook",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "salt",
+          "type": "bytes32",
+          "indexed": false,
+          "internalType": "bytes32"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "name": "LetterboxDeployed",
+      "type": "event",
+      "inputs": [
+        {
+          "name": "letterbox",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "name": "TradingOpened",
+      "type": "event",
+      "inputs": [
+        {
+          "name": "at",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "name": "TribunalDeployed",
+      "type": "event",
+      "inputs": [
+        {
+          "name": "tribunal",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "name": "FLAGS",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint160",
+          "internalType": "uint160"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "FLAG_MASK",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint160",
+          "internalType": "uint160"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "START",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "deployHook",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "salt",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "initCode",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "deployed",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "name": "deployLetterbox",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "creationCode",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "deployed",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "name": "deployTribunal",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "creationCode",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "deployed",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "name": "gate",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "hook",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "hookInitCodeHash",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "imd",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "letterbox",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "letterboxCodeHash",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "mintOracleFee",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "opened",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "oracleAsset",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "owner",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "plea",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "poolManager",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "predict",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "salt",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "predictLetterbox",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "predictTribunal",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "seasons",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "seed",
+      "type": "function",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "name": "tribunal",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "tribunalCodeHash",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    }
+  ],
+  "metadata": {
+    "compiler": {
+      "version": "0.8.26+commit.8a97fa7a"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "plea_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "gate_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "seasons_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "distributor_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "poolManager_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "imd_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "stacker_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "creditGas_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "start_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "oracleAsset_",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "mintOracleFee_",
+              "type": "bool"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "letterboxCodeHash_",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "tribunalCodeHash_",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "inputs": [],
+          "name": "BelowAgreedMarketCap",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "BelowAgreedTiming",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "HookAlreadyDeployed",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "HookDeployFailed",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "HookNotDeployed",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "LetterboxAlreadyDeployed",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "LetterboxDeployFailed",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "LetterboxNotDeployed",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "MintWithPoolImd",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "OracleAssetMismatch",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "OracleAssetNotImd",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "start",
+              "type": "uint256"
+            }
+          ],
+          "name": "TooEarly",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "TribunalAlreadyDeployed",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "TribunalDeployFailed",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "TribunalNotDeployed",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "TribunalOff",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "hook",
+              "type": "address"
+            }
+          ],
+          "name": "WrongFlags",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "WrongInitCode",
+          "type": "error"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "hook",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "salt",
+              "type": "bytes32"
+            }
+          ],
+          "name": "HookDeployed",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "letterbox",
+              "type": "address"
+            }
+          ],
+          "name": "LetterboxDeployed",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "at",
+              "type": "uint256"
+            }
+          ],
+          "name": "TradingOpened",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "tribunal",
+              "type": "address"
+            }
+          ],
+          "name": "TribunalDeployed",
+          "type": "event"
+        },
+        {
+          "inputs": [],
+          "name": "FLAGS",
+          "outputs": [
+            {
+              "internalType": "uint160",
+              "name": "",
+              "type": "uint160"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "FLAG_MASK",
+          "outputs": [
+            {
+              "internalType": "uint160",
+              "name": "",
+              "type": "uint160"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "START",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "salt",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes",
+              "name": "initCode",
+              "type": "bytes"
+            }
+          ],
+          "name": "deployHook",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "deployed",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes",
+              "name": "creationCode",
+              "type": "bytes"
+            }
+          ],
+          "name": "deployLetterbox",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "deployed",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes",
+              "name": "creationCode",
+              "type": "bytes"
+            }
+          ],
+          "name": "deployTribunal",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "deployed",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "gate",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "hook",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "hookInitCodeHash",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "imd",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "letterbox",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "letterboxCodeHash",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "mintOracleFee",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "opened",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "oracleAsset",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "owner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "plea",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "poolManager",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "salt",
+              "type": "bytes32"
+            }
+          ],
+          "name": "predict",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "predictLetterbox",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "predictTribunal",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "seasons",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "seed",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "tribunal",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "tribunalCodeHash",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ],
+      "devdoc": {
+        "details": "Last contract of the launch. Its constructor (inside the launch transaction) registers the system's contracts with PLEA and commits to the hook's, the Letterbox's and the Tribunal's exact init code, so the launch transaction stays under Ethereum's 16,777,216-gas cap. After launch, anyone calls `deployHook` with a salt mined off chain (script/MineSalt.s.sol): the hook lands on an address carrying its flag bits, and PLEA mints 82% to it, 6% to Seasons and 12% to the distributor. Anyone calls `deployLetterbox` and `deployTribunal` once each with the committed creation code: both read their settings from this contract. Every result's code and settings are fully determined by the committed code, so front-running any of these calls changes nothing but, for the hook, the address: the salt is the caller's, so a front-runner may land the same hook at another flag-valid address (the Letterbox and the Tribunal use salt 0 and have fixed addresses). A zero Tribunal hash launches with objections off for good. `seed` opens trading once the hook, the Letterbox and a committed Tribunal exist: the owner may call it any time, anyone once `START` has passed.Round 5, R5-A2-1: the Letterbox's (and the Tribunal's) oracle-fee settings are checked here, in the launch transaction, wherever they do not depend on the chain; the one that does (no minted fee on chain id 1) stops `deployLetterbox`, and `seed` waits for the Letterbox, so trading never opens on a launch whose letters could never work.",
+        "kind": "dev",
+        "methods": {},
+        "title": "PleaLaunch \u2014 wires PLEA at launch and deploys the hook, the Letterbox and the Tribunal afterwards",
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "FLAGS()": {
+            "notice": "beforeInitialize | beforeAddLiquidity | beforeSwap | afterSwap | beforeSwapReturnDelta | afterSwapReturnDelta"
+          },
+          "START()": {
+            "notice": "Latest time trading opens: from then on anyone may call `seed`."
+          },
+          "deployHook(bytes32,bytes)": {
+            "notice": "Deploys PleaHook with CREATE2 at a flagged address and lets PLEA mint the supply. `initCode` must be the committed one (PleaHook creation code + its constructor arguments)."
+          },
+          "deployLetterbox(bytes)": {
+            "notice": "Deploys the Letterbox with CREATE2 (salt 0) and registers it with PLEA, once. `creationCode` must be the committed one; the Letterbox reads its settings from this contract."
+          },
+          "deployTribunal(bytes)": {
+            "notice": "Deploys the Tribunal (Objection!) with CREATE2 (salt 0), once. `creationCode` must be the committed one; the Tribunal reads its settings from this contract and Seasons finds it here."
+          },
+          "letterboxCodeHash()": {
+            "notice": "keccak256 of the Letterbox's creation code (it takes no constructor arguments)."
+          },
+          "oracleAsset()": {
+            "notice": "The Letterbox's settings, read by its constructor: the asset the oracle fee is paid in, and whether it mints that fee (Sepolia's open-mint test token; refused on chain id 1)."
+          },
+          "predict(bytes32)": {
+            "notice": "The address `deployHook(salt, \u2026)` deploys to."
+          },
+          "predictLetterbox()": {
+            "notice": "The address `deployLetterbox` deploys to."
+          },
+          "predictTribunal()": {
+            "notice": "The address `deployTribunal` deploys to (zero when objections are off)."
+          },
+          "seed()": {
+            "notice": "Opens trading: creates the pool (90-min launch window starts) and the first Cabal's era. The hook, the Letterbox and a committed Tribunal must exist (anyone may deploy each with the committed code), so no plea is ever recorded out of the Tribunal's reach (round 6)."
+          },
+          "tribunalCodeHash()": {
+            "notice": "keccak256 of the Tribunal's creation code (no constructor arguments); zero means the launch has no objections."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "compilationTarget": {
+        "src/PleaLaunch.sol": "PleaLaunch"
+      },
+      "evmVersion": "cancun",
+      "libraries": {},
+      "metadata": {
+        "appendCBOR": false,
+        "bytecodeHash": "none"
+      },
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "remappings": [
+        ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+        ":forge-std/=lib/forge-std/src/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/",
+        ":solmate/=lib/solmate/",
+        ":v4-core/=lib/v4-core/src/"
+      ],
+      "viaIR": true
+    },
+    "sources": {
+      "lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol": {
+        "keccak256": "0xd5ea07362ab630a6a3dee4285a74cf2377044ca2e4be472755ad64d7c5d4b69d",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://da5e832b40fc5c3145d3781e2e5fa60ac2052c9d08af7e300dc8ab80c4343100",
+          "dweb:/ipfs/QmTzf7N5ZUdh5raqtzbM11yexiUoLC9z3Ws632MCuycq1d"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol": {
+        "keccak256": "0x0afcb7e740d1537b252cb2676f600465ce6938398569f09ba1b9ca240dde2dfc",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://1c299900ac4ec268d4570ecef0d697a3013cd11a6eb74e295ee3fbc945056037",
+          "dweb:/ipfs/Qmab9owJoxcA7vJT5XNayCMaUR1qxqj1NDzzisduwaJMcZ"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol": {
+        "keccak256": "0x1a6221315ce0307746c2c4827c125d821ee796c74a676787762f4778671d4f44",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://1bb2332a7ee26dd0b0de9b7fe266749f54820c99ab6a3bcb6f7e6b751d47ee2d",
+          "dweb:/ipfs/QmcRWpaBeCYkhy68PR3B4AgD7asuQk7PwkWxrvJbZcikLF"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol": {
+        "keccak256": "0x74ed01eb66b923d0d0cfe3be84604ac04b76482a55f9dd655e1ef4d367f95bc2",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://5282825a626cfe924e504274b864a652b0023591fa66f06a067b25b51ba9b303",
+          "dweb:/ipfs/QmeCfPykghhMc81VJTrHTC7sF6CRvaA1FXVq2pJhwYp1dV"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol": {
+        "keccak256": "0x982c5cb790ab941d1e04f807120a71709d4c313ba0bfc16006447ffbd27fbbd5",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://8150ceb4ac947e8a442b2a9c017e01e880b2be2dd958f1fa9bc405f4c5a86508",
+          "dweb:/ipfs/QmbcBmFX66AY6Kbhnd5gx7zpkgqnUafo43XnmayAM7zVdB"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol": {
+        "keccak256": "0x8891738ffe910f0cf2da09566928589bf5d63f4524dd734fd9cedbac3274dd5c",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://971f954442df5c2ef5b5ebf1eb245d7105d9fbacc7386ee5c796df1d45b21617",
+          "dweb:/ipfs/QmadRjHbkicwqwwh61raUEapaVEtaLMcYbQZWs9gUkgj3u"
+        ]
+      },
+      "lib/v4-core/src/interfaces/IExtsload.sol": {
+        "keccak256": "0x80b53ca4907d6f0088c3b931f2b72cad1dc4615a95094d96bd0fb8dff8d5ba43",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://375c69148622aab7a3537d5fd37d373a8e9731022c8d87bdaee46233b0a99fe1",
+          "dweb:/ipfs/QmXFjdoYRxsA5B1kyuxEXgNf3FBoL1zPvy26Qy8EtpdFRN"
+        ]
+      },
+      "lib/v4-core/src/interfaces/IExttload.sol": {
+        "keccak256": "0xc6b68283ebd8d1c789df536756726eed51c589134bb20821b236a0d22a135937",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://294394f72dfc219689209f4130d85601dfd0d63c8d47578050d312db70f9b6c8",
+          "dweb:/ipfs/QmTDMQ3oxCGHgEBU48a3Lp4S1rRjc8vVCxkhE5ZNej1bsY"
+        ]
+      },
+      "lib/v4-core/src/interfaces/IHooks.sol": {
+        "keccak256": "0xc131ffa2d04c10a012fe715fe2c115811526b7ea34285cf0a04ce7ce8320da8d",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://3b212358897db5d99c21244d88f97b2e788527552cb430629b472a8cc6289aec",
+          "dweb:/ipfs/QmQtwV4dDe2RYk2ErLpaAX7U82jWh1L6Lw2HRuKDvBi84G"
+        ]
+      },
+      "lib/v4-core/src/interfaces/IPoolManager.sol": {
+        "keccak256": "0xbdab3544da3d32dfdf7457baa94e17d5a3012952428559e013ffac45d067038e",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://ce95ff864468e37c76adf71df061d4f3d6f3a5ec1f9bc3aea090463bc72798f4",
+          "dweb:/ipfs/QmSbWh1pLbz51yQF4HEu5NRhr8XVv9JYGEw1hq1HudAnCi"
+        ]
+      },
+      "lib/v4-core/src/interfaces/IProtocolFees.sol": {
+        "keccak256": "0x32a666e588a2f66334430357bb1e2424fe7eebeb98a3364b1dd16eb6ccca9848",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://85751d302125881f72e5f8af051c2d5d9b1f606ebaea8ca7d04fccdd27cc252d",
+          "dweb:/ipfs/QmeRwomeh9NWm6A6fgNA4KZPQZHPpdKsPQyYsHSFmvud7J"
+        ]
+      },
+      "lib/v4-core/src/interfaces/external/IERC20Minimal.sol": {
+        "keccak256": "0xeccadf1bf69ba2eb51f2fe4fa511bc7bb05bbd6b9f9a3cb8e5d83d9582613e0f",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://118757369892687b99ef46ce28d6861f62c098285bd7687a4f17f7e44e5f81de",
+          "dweb:/ipfs/QmUxqbYqQtcEwwFbb9e6BBMePEaSgN8C45v6RKubD4ib8d"
+        ]
+      },
+      "lib/v4-core/src/interfaces/external/IERC6909Claims.sol": {
+        "keccak256": "0xa586f345739e52b0488a0fe40b6e375cce67fdd25758408b0efcb5133ad96a48",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://e8c557b7e52abdbbd82e415a1acc27921446a7fd090b7d4877e52be72619547f",
+          "dweb:/ipfs/QmXE2KNPbXmGX8BQF3ei6zhzRTnhoTQg39XmqMnkhbr6QK"
+        ]
+      },
+      "lib/v4-core/src/libraries/BitMath.sol": {
+        "keccak256": "0x51b9be4f5c4fd3e80cbc9631a65244a2eb2be250b6b7f128a2035080e18aee8d",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://fe98bbd5498e912146b9319827fc63621eb66ff55d5baae0fa02a7a972ab8d1e",
+          "dweb:/ipfs/QmY5hCuyrtgsJtk4AavrxcvBkRrChfr4N6ZnhdC8roPpNi"
+        ]
+      },
+      "lib/v4-core/src/libraries/CustomRevert.sol": {
+        "keccak256": "0x111ed3031b6990c80a93ae35dde6b6ac0b7e6af471388fdd7461e91edda9b7de",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://c9ea883c98d6ae1829160d0977bb5195761cfd5bc81692d0a941f45717f594cd",
+          "dweb:/ipfs/QmZPwxzaeMNv536wzrAMrMswu7vMHuqPVpjcqL3YvCMoxt"
+        ]
+      },
+      "lib/v4-core/src/libraries/FixedPoint128.sol": {
+        "keccak256": "0xad236e10853f4b4b20a35a9bb52b857c4fc79874846b7e444e06ead7f2630542",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://0de1f9a06520b1a689660943faa14fc0b8344ab41fab9e6012ea34bff4b9b3eb",
+          "dweb:/ipfs/QmRNMPTyko7W6d6KxuTsnDBa9oZgDK4xiwRRq3H9ASTbwy"
+        ]
+      },
+      "lib/v4-core/src/libraries/FixedPoint96.sol": {
+        "keccak256": "0xef5c3fd41aee26bb12aa1c32873cfee88e67eddfe7c2b32283786265ac669741",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://4de298d02f662a1c36c7be0a150f18c2a161408a5d3e48432e707efd01fac9a4",
+          "dweb:/ipfs/QmSiM4oeMmLVKmAtJXz2feYkv4R9ZcyBpkTRW5Nhw5KDyJ"
+        ]
+      },
+      "lib/v4-core/src/libraries/FullMath.sol": {
+        "keccak256": "0x4fc73a00817193fd3cac1cc03d8167d21af97d75f1815a070ee31a90c702b4c2",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://c3b2d66d36b1ad56b1ab6e2eb8a816740877b40b461c93f125e88621c8378e52",
+          "dweb:/ipfs/QmPGvMZzKQvNiWKd8aRzzdW7oAizwrMgcMtnaworDkVHFC"
+        ]
+      },
+      "lib/v4-core/src/libraries/Hooks.sol": {
+        "keccak256": "0xd679b4b2d429689bc44f136050ebc958fb2d7d0d3a3c7b3e48c08ab4fba09aaa",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://287190cb72840e5eb63cc7a8a1d0b9150af17d8e4ea0323f47c7e7928f2033cb",
+          "dweb:/ipfs/QmVfqWBnAQM2jUcuREDdvjcP21gNuLU35CoL3NG5CEhNcx"
+        ]
+      },
+      "lib/v4-core/src/libraries/LPFeeLibrary.sol": {
+        "keccak256": "0xbf6914e01014e7c1044111feb7df7a3d96bb503b3da827ad8464b1955580d13b",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://33823c20a91882c9aacdcbb02f0558c05209f4d5954aa6dd4fa17c95664db475",
+          "dweb:/ipfs/QmR7owkFgpfztpp1QUg3ut3nw9iPVQqLGP4hzgmZtRUQ2J"
+        ]
+      },
+      "lib/v4-core/src/libraries/LiquidityMath.sol": {
+        "keccak256": "0x000ef2eadcc1eb7b2c18a77655f94e76e0e860f605783484657ef65fd6eda353",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://a766b620a7a22798b43c6c1f23b5c6cff0ebf588deb89842bad05208d448cd99",
+          "dweb:/ipfs/QmVKjaFJdzkqA3ey2Byum8iTCMssWVD8MmVC8rw62Tj5WD"
+        ]
+      },
+      "lib/v4-core/src/libraries/ParseBytes.sol": {
+        "keccak256": "0x7533b13f53ee2c2c55500100b22ffd6e37e7523c27874edc98663d53a8672b15",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://82449058634fde28a085f3c59a6a5f412550c02181590593fd84c3e8b329aa17",
+          "dweb:/ipfs/Qmev4E9Au6SsE4wsArChCwfg94KhHc5gYsEsZUnjF5sRLa"
+        ]
+      },
+      "lib/v4-core/src/libraries/Position.sol": {
+        "keccak256": "0xddab2a831f1befb6abf5567e77c4582169ca8156cf69eb4f22d8e87f7226a3f9",
+        "license": "BUSL-1.1",
+        "urls": [
+          "bzz-raw://c79fe61b50f3b70cff503abfa6f5643fcbefb9b794855bee1019b1e6d9c083b2",
+          "dweb:/ipfs/QmbKmYNQesaMz8bo1b7TMHQcAwaDd3eDPrE5pAdPPZTtk5"
+        ]
+      },
+      "lib/v4-core/src/libraries/SafeCast.sol": {
+        "keccak256": "0x42c4a24f996a14d358be397b71f7ec9d7daf666aaec78002c63315a6ee67aa86",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://c3db86e2ba3679105fc32edec656c70282e1fede6cab11217702443f6c26fa59",
+          "dweb:/ipfs/QmX4yaaSPdKQzYNRsezjTvZKsubzS8JRTEGFD3fPpTTCcj"
+        ]
+      },
+      "lib/v4-core/src/libraries/SqrtPriceMath.sol": {
+        "keccak256": "0xf8079fe6e3460db495451d06b1705e18f1c4075c1af96a31ad313545f7082982",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://582fc51546723a0a8acccf782f69b530bacf9b3ef929458e82569b7121f0b138",
+          "dweb:/ipfs/QmSBXcmqZdFsM7M4sRaiyQAxykCeMNFKyKgBcwSMTw1bcF"
+        ]
+      },
+      "lib/v4-core/src/libraries/StateLibrary.sol": {
+        "keccak256": "0x96db333ee126a841dd959e38e452cc59d73583cb0437a1d48b2052e33a74f952",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://8672bba1eb69608299b0904f4ff305238eb18479d371c26518f278c9ee184cd0",
+          "dweb:/ipfs/QmTLu3s6ECvsEDHStQv8HTVHYtvkviBbdjPrFJd4SpVRFY"
+        ]
+      },
+      "lib/v4-core/src/libraries/TickMath.sol": {
+        "keccak256": "0x4e1a11e154eb06106cb1c4598f06cca5f5ca16eaa33494ba2f0e74981123eca8",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://a79a57f7b240783b045168d1c4f774ac1812caf8f9a83cb6959a86b0b07b6c70",
+          "dweb:/ipfs/QmTb5kvxwDNW8jDuQaqdJ445cCFejNkUqEB17Bjo8UBiva"
+        ]
+      },
+      "lib/v4-core/src/libraries/UnsafeMath.sol": {
+        "keccak256": "0xa6e55e0a43a15df2df471d9972cd48f613d07c663ecb8bbeaf7623f6f99bcce4",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://02ea6e13879fc5a5f35149a2f1cd8af3a1f0877ff69101dad53841d16f515572",
+          "dweb:/ipfs/QmcpL4gdG6hL2w1wqs2Vw4J1EFCwBs9T1Qd4p16CtECQkn"
+        ]
+      },
+      "lib/v4-core/src/types/BalanceDelta.sol": {
+        "keccak256": "0xa719c8fe51e0a9524280178f19f6851bcc3b3b60e73618f3d60905d35ae5569f",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://7436928dc9de35c6c7c5c636cb51adaf295cfd590da83b19a004ae33cbec9ef9",
+          "dweb:/ipfs/QmRJ9yZkUpzk4433GX3LgVVL8jwpbSYSUwXcucKisf3v4H"
+        ]
+      },
+      "lib/v4-core/src/types/BeforeSwapDelta.sol": {
+        "keccak256": "0x2a774312d91285313d569da1a718c909655da5432310417692097a1d4dc83a78",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://a2c7a0379955cff9c17ab9e61f95e42909aa5947c22740f86ce940d09856f782",
+          "dweb:/ipfs/QmaAuo8UBYXsGrVuKh8iRoAAdqwtg1jDq515cW1ZRP5m9K"
+        ]
+      },
+      "lib/v4-core/src/types/Currency.sol": {
+        "keccak256": "0x4a0b84b282577ff6f8acf13ec9f4d32dbb9348748b49611d00e68bee96609c93",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://45f9d62ab3d51b52957279e353853ba1547c3182c9a1e3d1846ada4a90263b01",
+          "dweb:/ipfs/QmS8NG84ccQS1yXVD8cv3eKX7J1UKxuJhbUfHTQR2opKF5"
+        ]
+      },
+      "lib/v4-core/src/types/PoolId.sol": {
+        "keccak256": "0x308311916ea0f5c2fd878b6a2751eb223d170a69e33f601fae56dfe3c5d392af",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://669c2cd7ac17690b5d8831e0bda72822376c3a04b36afed6d31df4d75fe60918",
+          "dweb:/ipfs/QmT6EpkxqU8VF3WsgrZ66F3s1cCQRffR95z1HDYZz7ph6y"
+        ]
+      },
+      "lib/v4-core/src/types/PoolKey.sol": {
+        "keccak256": "0xf89856e0580d7a4856d3187a76858377ccee9d59702d230c338d84388221b786",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://6f3118fa189025695c37fdf0bdd1190f085ad097484d3c88cf4c56d1db65f639",
+          "dweb:/ipfs/QmamXpgtB8GV1CaFLvqefPWSoikLDhMk1yU4heBnVzU8gi"
+        ]
+      },
+      "lib/v4-core/src/types/PoolOperation.sol": {
+        "keccak256": "0x7a1a107fc1f2208abb2c9364c8c54e56e98dca27673e9441bed2b949b6382162",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://4ad2470383bc5595d5af17840c64971f457adac68895a4db41ba5c71a4478e07",
+          "dweb:/ipfs/QmdwKhBHDZFuqXrR2BfDBD9r7rB2ULGQBznsajRTkTmL4c"
+        ]
+      },
+      "src/PleaHook.sol": {
+        "keccak256": "0x3ec6deb2da7a0ae30ffef8db915ab6527bf6243a8544b0327247fab78c0cbefb",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://6d58aec5b83ffa9fd15feb4a19333512feb5b0425666ced8e711a2ac6c9e1842",
+          "dweb:/ipfs/QmcneBWw4EwBEvCU9LkRzrHpsNN2jDAHAefuYnDdZwpQsD"
+        ]
+      },
+      "src/PleaLaunch.sol": {
+        "keccak256": "0xca98520670483245bcc8501fdf2c1f92a74a353fdb3992dd0977dc7c2c277649",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://c60ea1de4d1cd266008858b96ba1aa6d173556d3fee35ae49dbf395fb4b29b00",
+          "dweb:/ipfs/QmQc6MsrAyKi91dXFkmf7CaqV9tV4wevEhJc98yn19SvRQ"
+        ]
+      },
+      "src/interfaces/IPleaParts.sol": {
+        "keccak256": "0x1180159128ab7b1f251f42b8c571c9f3107717d71b26ad5ca37d0916c4f5c841",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://bca4c3e9fe88ee1ab8722cf64edee7d568c74b186bbd2b2615b2585a4cce226b",
+          "dweb:/ipfs/QmaPcmoHk8ecKdTrfY5wGYG1JbKhUriyebsBBkJvfXe5KH"
+        ]
+      },
+      "src/interfaces/IStacker.sol": {
+        "keccak256": "0xdff339d3e43b771edd21a96ccd3f29a78604cff3c76fa51be4c9d7ad20956c7b",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://b52060c09ca59765fa653295b9ebc5cd580ad6537e219a2b1ff7bf2a333f4e74",
+          "dweb:/ipfs/QmTPGSUjHh4sLABgsSHhPdQtkqn9TB4hqBzVMyudcTjDUp"
+        ]
+      }
+    },
+    "version": 1
+  },
+  "matchId": "57441759",
+  "creationMatch": "match",
+  "runtimeMatch": "match",
+  "verifiedAt": "2026-10-28T21:34:42Z",
+  "match": "match",
+  "chainId": "1",
+  "address": "0x9e75eabf8d1c905a07a0C99bb9eC9430a065358F"
+}

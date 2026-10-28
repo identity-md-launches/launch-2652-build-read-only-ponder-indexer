@@ -1,0 +1,13 @@
+.git
+.github
+.imd
+node_modules
+.pnpm-store
+vendor
+.ponder
+generated
+.env*
+.build-id
+test
+checks
+tests

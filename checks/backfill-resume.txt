@@ -1,0 +1,12 @@
+22:43:34.399 INFO  Connected to database type=pglite database=.ponder/pglite (553ms)
+22:43:34.628 INFO  Connected to JSON-RPC chain=mainnet hostnames=["custom_transport"] (221ms)
+22:43:40.331 INFO  Detected crash recovery build_id=7c20e9929d last_active=4m 46ss schema=verification
+22:43:42.081 INFO  Started backfill indexing chain=mainnet block_range=[26294247,26294282]
+22:43:42.083 INFO  Started fetching backfill JSON-RPC data chain=mainnet cached_block=26294247 cache_rate=91.1%
+22:43:47.082 INFO  Updated backfill indexing progress progress=91.1%
+22:43:52.082 INFO  Updated backfill indexing progress progress=91.1%
+22:43:57.081 INFO  Updated backfill indexing progress progress=91.1%
+22:44:00.108 INFO  Indexed block range chain=mainnet event_count=0 block_range=[26294274,26294282] (7ms)
+22:44:00.109 INFO  Completed backfill indexing across all chains (18s)
+22:44:00.138 INFO  Started returning 200 responses endpoint=/ready
+22:44:00.144 INFO  Started live indexing chain=mainnet finalized_block=26294282 factory_address_count=0

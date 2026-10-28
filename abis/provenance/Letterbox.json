@@ -1,0 +1,1671 @@
+{
+  "abi": [
+    {
+      "type": "constructor",
+      "inputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "name": "BadName",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "FeeTooHigh",
+      "type": "error",
+      "inputs": [
+        {
+          "name": "maxFeePlea",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "balance",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "name": "LetterTooLong",
+      "type": "error",
+      "inputs": [
+        {
+          "name": "length",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "max",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "name": "LetterTooSmall",
+      "type": "error",
+      "inputs": [
+        {
+          "name": "amount",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "name": "MintOnMainnet",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "MintWithPoolImd",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "NameTaken",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "NoPrice",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "NotOpen",
+      "type": "error",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "name": "NotSettleable",
+      "type": "error",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "name": "NothingToAppeal",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "OracleAssetMismatch",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "OracleAssetNotImd",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "PendingExists",
+      "type": "error",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "name": "ReentrancyGuardReentrantCall",
+      "type": "error",
+      "inputs": []
+    },
+    {
+      "name": "SafeCastOverflowedUintDowncast",
+      "type": "error",
+      "inputs": [
+        {
+          "name": "bits",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "value",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "name": "SafeERC20FailedOperation",
+      "type": "error",
+      "inputs": [
+        {
+          "name": "token",
+          "type": "address",
+          "internalType": "address"
+        }
+      ]
+    },
+    {
+      "name": "StringsInsufficientHexLength",
+      "type": "error",
+      "inputs": [
+        {
+          "name": "value",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "length",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "name": "TooSmallForTheFee",
+      "type": "error",
+      "inputs": [
+        {
+          "name": "value",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "name": "Delivered",
+      "type": "event",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "runner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "imdOut",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "tip",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "fee",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "name": "Escrowed",
+      "type": "event",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "writer",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "feePlea",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "flags",
+          "type": "uint8",
+          "indexed": false,
+          "internalType": "uint8"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "name": "NameSet",
+      "type": "event",
+      "inputs": [
+        {
+          "name": "wallet",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "indexed": false,
+          "internalType": "string"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "name": "Settled",
+      "type": "event",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "writer",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "tip",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "fallback",
+      "stateMutability": "nonpayable"
+    },
+    {
+      "name": "appealAuto",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "originalId",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "id",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "name": "deliver",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "out",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "name": "escrowOf",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "writer",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "open",
+          "type": "bool",
+          "internalType": "bool"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "soldFor",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "feesFor",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "isAppeal",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "feeImd",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "maxFeePlea",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "leaderboard",
+      "type": "function",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "out",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "letter",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "text",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "name": "nameOf",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "wallet",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "nameOwner",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "openOf",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "writer",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "id",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "openCount",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "plead",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "amount",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "id",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "name": "setName",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "name",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "name": "settle",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "name": "status",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "w",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "stateMutability": "view"
+    }
+  ],
+  "metadata": {
+    "compiler": {
+      "version": "0.8.26+commit.8a97fa7a"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "inputs": [],
+          "name": "BadName",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "maxFeePlea",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "balance",
+              "type": "uint256"
+            }
+          ],
+          "name": "FeeTooHigh",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "length",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "max",
+              "type": "uint256"
+            }
+          ],
+          "name": "LetterTooLong",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "LetterTooSmall",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "MintOnMainnet",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "MintWithPoolImd",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "NameTaken",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "NoPrice",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "NotOpen",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "NotSettleable",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "NothingToAppeal",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "OracleAssetMismatch",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "OracleAssetNotImd",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "PendingExists",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "ReentrancyGuardReentrantCall",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint8",
+              "name": "bits",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "SafeCastOverflowedUintDowncast",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            }
+          ],
+          "name": "SafeERC20FailedOperation",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "length",
+              "type": "uint256"
+            }
+          ],
+          "name": "StringsInsufficientHexLength",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "TooSmallForTheFee",
+          "type": "error"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "runner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "imdOut",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "tip",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "fee",
+              "type": "uint256"
+            }
+          ],
+          "name": "Delivered",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "writer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "feePlea",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "flags",
+              "type": "uint8"
+            }
+          ],
+          "name": "Escrowed",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "wallet",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "name": "NameSet",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "writer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "tip",
+              "type": "uint256"
+            }
+          ],
+          "name": "Settled",
+          "type": "event"
+        },
+        {
+          "stateMutability": "nonpayable",
+          "type": "fallback"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "originalId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "text",
+              "type": "string"
+            }
+          ],
+          "name": "appealAuto",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "deliver",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "out",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "escrowOf",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "writer",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "open",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "soldFor",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bool",
+              "name": "isAppeal",
+              "type": "bool"
+            }
+          ],
+          "name": "feesFor",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "feeImd",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxFeePlea",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "leaderboard",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "out",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "text",
+              "type": "string"
+            }
+          ],
+          "name": "letter",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "wallet",
+              "type": "address"
+            }
+          ],
+          "name": "nameOf",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "name": "nameOwner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "writer",
+              "type": "address"
+            }
+          ],
+          "name": "openOf",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "openCount",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "text",
+              "type": "string"
+            }
+          ],
+          "name": "plead",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "name": "setName",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "settle",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "w",
+              "type": "address"
+            }
+          ],
+          "name": "status",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ],
+      "devdoc": {
+        "details": "No owner and no admin. No public function's ID can be the start of a valid letter (its four bytes are not the beginning of control-free UTF-8 text), so no letter can call a function by accident; a test checks the whole ABI. `deliver` runs the `SELL` letter's sale too, with the writer as the runner, so the writer gets the tip back.",
+        "errors": {
+          "LetterTooLong(uint256,uint256)": [
+            {
+              "details": "A plea's text is at most 280 bytes (UTF-8): about 280 Latin, 140 Cyrillic or Arabic, 93 CJK characters."
+            }
+          ],
+          "ReentrancyGuardReentrantCall()": [
+            {
+              "details": "Unauthorized reentrant call."
+            }
+          ],
+          "SafeCastOverflowedUintDowncast(uint8,uint256)": [
+            {
+              "details": "Value doesn't fit in an uint of `bits` size."
+            }
+          ],
+          "SafeERC20FailedOperation(address)": [
+            {
+              "details": "An operation with an ERC-20 token failed."
+            }
+          ],
+          "StringsInsufficientHexLength(uint256,uint256)": [
+            {
+              "details": "The `value` string doesn't fit in the specified `length`."
+            }
+          ]
+        },
+        "kind": "dev",
+        "methods": {
+          "constructor": {
+            "details": "Deployed by `PleaLaunch.deployLetterbox` after the launch: it reads its settings from its deployer, so it takes no constructor arguments and its creation code, committed at launch, is the same for every deployment."
+          },
+          "deliver(uint256)": {
+            "returns": {
+              "out": "The IMD paid to the writer."
+            }
+          }
+        },
+        "stateVariables": {
+          "AUTO_SELL_FEE": {
+            "details": "The auto-sell fee: taken from a delivered sale's IMD and paid to the season's prize pot (Seasons). Only the site's auto-sell box pays it; a letter (BY_LETTER) does not. Nothing is taken when no sale happens."
+          },
+          "FEE_CAP_BPS": {
+            "details": "The fee swap may spend at most the snapshot value of the IMD it buys, plus 10%."
+          },
+          "HOOK_SALE_FEE_BPS": {
+            "details": "The hook's fees on a sale: 0.25% of the PLEA burned and 2% of the IMD out (PleaHook `PLEA_BURN_BPS` + `IMD_FEE_BPS`), which the gate's net output already excludes (round 7, R7-M-1)."
+          },
+          "LETTER_SHARE_BPS": {
+            "details": "A letter pleads 20% of the writer's PLEA (within the gate's 2.5M cap), the edge of the gate's best share band."
+          },
+          "MAX_FEE_SHARE_BPS": {
+            "details": "The fees may take at most 10% of the writer's PLEA."
+          },
+          "MAX_PLEA_BYTES": {
+            "details": "CabalGate's text limit, repeated so an over-long letter is refused with a clear error."
+          },
+          "MIN_LETTER": {
+            "details": "A letter below this amount is refused (the fees would dwarf it)."
+          },
+          "MIN_OUT_BPS": {
+            "details": "Auto-sell minimum: 95% of the PLEA's value at the hook's hourly snapshot, after the hook's sale fees (`HOOK_SALE_FEE_BPS`), so the 5% is the room for a price dip and the sale's impact."
+          },
+          "MIN_SALE_VALUE": {
+            "details": "A plea must be worth at least this at the snapshot (letters too), so the auto-sell fee stays near half a sale at most (a sale pays at least 92.9% of the snapshot value after the hook's 2.25% and the 5% room, so at the floor the fee is about 51% of a sale, 54% at worst) and a letter's fees stay small next to it."
+          },
+          "OBJECTION_WINDOW": {
+            "details": "The Tribunal's objection window (a test checks it against `Tribunal.OBJECTION_WINDOW`)."
+          },
+          "TIP": {
+            "details": "Paid to whoever delivers an approved plea; refunded when no sale happens."
+          },
+          "mintOracleFee": {
+            "details": "Sepolia: the oracle fee token is a separate test token anyone can mint, so the Letterbox mints the 0.5 instead of buying it. Refused on chain id 1."
+          }
+        },
+        "title": "Letterbox \u2014 plead to the Cabal by sending a letter",
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "appealAuto(uint256,string)": {
+            "notice": "Appeal a denied plea with auto-sell, for its original amount."
+          },
+          "deliver(uint256)": {
+            "notice": "Anyone sells an approved plea inside its 7-minute window, for at least 95% of its snapshot value after the hook's 2.25% sale fees: the sale goes to the writer (less the 0.35 IMD auto-sell fee to the season's prize pot when the plea came from the site's auto-sell box, never from a letter), the points are recorded, and the caller earns the 0.25 IMD tip."
+          },
+          "escrowOf(uint256)": {
+            "notice": "An escrow: writer, still open, PLEA held; and the IMD its sale paid (0 if unsold)."
+          },
+          "feesFor(bool)": {
+            "notice": "What a plea (or an appeal) by letter costs now: the IMD it buys and the most PLEA it may spend on it (snapshot value + 10%; unspent PLEA goes back)."
+          },
+          "leaderboard()": {
+            "notice": "The running season's top 25 as text lines: rank, name, points, and the IMD prize and PLEA bonus each rank would get from the pot as it stands."
+          },
+          "letter(string)": {
+            "notice": "The same letter typed into a block explorer's Write Contract tab: `text` is read exactly like a letter's input data (a plea, `APPEAL <text>`, `SELL` or `NAME <name>`)."
+          },
+          "nameOwner(bytes32)": {
+            "notice": "The wallet holding a display name (by the name's keccak256)."
+          },
+          "openOf(address)": {
+            "notice": "The writer's open escrow (0 if none), and the number of open escrows (each holds a tip)."
+          },
+          "plead(uint256,string)": {
+            "notice": "Plead `amount` with the site's \"sell automatically\" box: escrow, fees in PLEA and the tip exactly as a letter, no approvals needed."
+          },
+          "setName(string)": {
+            "notice": "Sets the caller's display name: 3-20 characters of a-z, 0-9 and _, unique. An empty name clears it. Reserved: cabal, admin, imd, plea, owner. A `NAME <name>` letter does the same."
+          },
+          "settle(uint256)": {
+            "notice": "Anyone ends an escrow that will not be sold (denied, upheld, no verdict, expired or lapsed): the PLEA and the tip go back to the writer. A lapsed approval is recorded first, since it still counts for its season."
+          },
+          "status(address)": {
+            "notice": "One sentence about `w`'s latest plea, readable from a block explorer."
+          }
+        },
+        "notice": "A letter is a transaction to this contract whose input data is the plea text (UTF-8), as a wallet's data field or an explorer's message (IDM) page sends it, or the same text passed to `letter(text)` from an explorer's Write Contract tab. The writer is always the sender. The first word decides what it does:   any other text   a new plea for 20% of the writer's PLEA, sold automatically if approved;   `APPEAL <text>`  an appeal of the writer's latest denied plea, for its original amount (an                    appeal the oracle never answered may be sent again);   `SELL`           the writer sells their own approved letter plea (if no runner did yet);   `NAME <name>`    the writer's display name (3-20 characters a-z 0-9 _, unique; `setName`). Fees are paid in PLEA in the letter's own transaction: the gate sells just enough of the writer's PLEA (at most the hourly snapshot value + 10%) for the oracle fee, a 0.25 IMD runner tip and, for an appeal, the wall share. The plea's PLEA waits here in escrow. An approved plea is sold by anyone through `deliver` (for at least 95% of its snapshot value after the hook's 2.25% sale fees), who earns the tip, and the whole sale goes to the writer: a letter pays no auto-sell fee (0.5 IMD oracle fee + 0.25 IMD tip, and the tip comes back to a writer who sends `SELL`). The site's \"sell automatically\" box (`plead` / `appealAuto`) has the same escrow and tip, and its delivered sale pays the auto-sell fee: 0.35 IMD of the sale (never more than the sale) to the season's prize pot, the rest to the writer. Selling by hand on the site inside the 7-minute window costs nothing extra. Every other ending returns the escrow and the tip to the writer through `settle`; the fee is only ever taken from a sale. A plea worth less than 0.70 IMD at the snapshot is refused, letters included, so a fee can never eat a sale.",
+        "version": 1
+      }
+    },
+    "settings": {
+      "compilationTarget": {
+        "src/Letterbox.sol": "Letterbox"
+      },
+      "evmVersion": "cancun",
+      "libraries": {},
+      "metadata": {
+        "appendCBOR": false,
+        "bytecodeHash": "none"
+      },
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "remappings": [
+        ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+        ":forge-std/=lib/forge-std/src/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/",
+        ":solmate/=lib/solmate/",
+        ":v4-core/=lib/v4-core/src/"
+      ],
+      "viaIR": true
+    },
+    "sources": {
+      "lib/openzeppelin-contracts/contracts/interfaces/IERC1271.sol": {
+        "keccak256": "0x66c7ec42c6c43712be2107a50ab4529379bc76a632b425babec698d9da921ac6",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://dce2778f0b638adfc5ba29c2c618c855fe725fa74a16846386aa1d56a834aa04",
+          "dweb:/ipfs/QmPV9oWnzQdi58od266j62xvviavLNHqKLZfm6k2K1qy9E"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol": {
+        "keccak256": "0xd5ea07362ab630a6a3dee4285a74cf2377044ca2e4be472755ad64d7c5d4b69d",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://da5e832b40fc5c3145d3781e2e5fa60ac2052c9d08af7e300dc8ab80c4343100",
+          "dweb:/ipfs/QmTzf7N5ZUdh5raqtzbM11yexiUoLC9z3Ws632MCuycq1d"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol": {
+        "keccak256": "0x0afcb7e740d1537b252cb2676f600465ce6938398569f09ba1b9ca240dde2dfc",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://1c299900ac4ec268d4570ecef0d697a3013cd11a6eb74e295ee3fbc945056037",
+          "dweb:/ipfs/Qmab9owJoxcA7vJT5XNayCMaUR1qxqj1NDzzisduwaJMcZ"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol": {
+        "keccak256": "0x1a6221315ce0307746c2c4827c125d821ee796c74a676787762f4778671d4f44",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://1bb2332a7ee26dd0b0de9b7fe266749f54820c99ab6a3bcb6f7e6b751d47ee2d",
+          "dweb:/ipfs/QmcRWpaBeCYkhy68PR3B4AgD7asuQk7PwkWxrvJbZcikLF"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/interfaces/IERC5267.sol": {
+        "keccak256": "0xfb223a85dd0b2175cfbbaa325a744e2cd74ecd17c3df2b77b0722f991d2725ee",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://84bf1dea0589ec49c8d15d559cc6d86ee493048a89b2d4adb60fbe705a3d89ae",
+          "dweb:/ipfs/Qmd56n556d529wk2pRMhYhm5nhMDhviwereodDikjs68w1"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/interfaces/IERC7913.sol": {
+        "keccak256": "0xe5a126930df1d54e4a6dd5fea09010c4a7db0ea974c6c17a1e6082879f5a032b",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://2f58f5a90328536a6c68289916bfa4ed653d871319c7b2a416ab3f6263c4f2f5",
+          "dweb:/ipfs/Qmaa9DmgUA16Urz5fuF4RbFz2NaVpNLV41ddwykSdasFUd"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol": {
+        "keccak256": "0x74ed01eb66b923d0d0cfe3be84604ac04b76482a55f9dd655e1ef4d367f95bc2",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://5282825a626cfe924e504274b864a652b0023591fa66f06a067b25b51ba9b303",
+          "dweb:/ipfs/QmeCfPykghhMc81VJTrHTC7sF6CRvaA1FXVq2pJhwYp1dV"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol": {
+        "keccak256": "0x982c5cb790ab941d1e04f807120a71709d4c313ba0bfc16006447ffbd27fbbd5",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://8150ceb4ac947e8a442b2a9c017e01e880b2be2dd958f1fa9bc405f4c5a86508",
+          "dweb:/ipfs/QmbcBmFX66AY6Kbhnd5gx7zpkgqnUafo43XnmayAM7zVdB"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/Bytes.sol": {
+        "keccak256": "0x1613f93e376ab96791fd29f79da754e253c3d766831bc8c42f50545662f49065",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://e88ee314d50d0f323616f88d0ccf5e4110dbdec2775d8d42523bcc8b76ed36eb",
+          "dweb:/ipfs/QmQ18ygHRrDdz4AEZXy5PASUHvJk1SNWWKM3TyC1xvDedP"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/Panic.sol": {
+        "keccak256": "0xf7fe324703a64fc51702311dc51562d5cb1497734f074e4f483bfb6717572d7a",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://c6a5ff4f9fd8649b7ee20800b7fa387d3465bd77cf20c2d1068cd5c98e1ed57a",
+          "dweb:/ipfs/QmVSaVJf9FXFhdYEYeCEfjMVHrxDh5qL4CGkxdMWpQCrqG"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/ReentrancyGuardTransient.sol": {
+        "keccak256": "0xe56ff5015046505f81f9d62671a784e933dd099db4c3a8fa8de598f20af2c5a3",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://355863359b4a250f7016836ef9a9672578e898503896f70a0d42b80141586f3e",
+          "dweb:/ipfs/QmXXzvoMSFNQf8nRbcyRap5qzcbekWuzbXDY5C8f68JiG3"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/ShortStrings.sol": {
+        "keccak256": "0x1fcf8cceb1a67e6c8512267e780933c4a3f63ef44756e6c818fda79be51c8402",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://617d7d57f6f9cd449068b4d23daf485676d083aae648e038d05eb3a13291de35",
+          "dweb:/ipfs/QmPADWPiGaSzZDFNpFEUx4ZPqhzPkYncBpHyTfAGcfsqzy"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol": {
+        "keccak256": "0xcf74f855663ce2ae00ed8352666b7935f6cddea2932fdf2c3ecd30a9b1cd0e97",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://9f660b1f351b757dfe01438e59888f31f33ded3afcf5cb5b0d9bf9aa6f320a8b",
+          "dweb:/ipfs/QmarDJ5hZEgBtCmmrVzEZWjub9769eD686jmzb2XpSU1cM"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/Strings.sol": {
+        "keccak256": "0xad148d59f05165f9217d0a9e1ac8f772abb02ea6aaad8a756315c532bf79f9f4",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://15e3599867c2182f5831e9268b274b2ef2047825837df6b4d81c9e89254b093e",
+          "dweb:/ipfs/QmZbL7XAYr5RmaNaooPgZRmcDXaudfsYQfYD9y5iAECvpS"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/TransientSlot.sol": {
+        "keccak256": "0xac673fa1e374d9e6107504af363333e3e5f6344d2e83faf57d9bfd41d77cc946",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://5982478dbbb218e9dd5a6e83f5c0e8d1654ddf20178484b43ef21dd2246809de",
+          "dweb:/ipfs/QmaB1hS68n2kG8vTbt7EPEzmrGhkUbfiFyykGGLsAr9X22"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol": {
+        "keccak256": "0x69f54c02b7d81d505910ec198c11ed4c6a728418a868b906b4a0cf29946fda84",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://8e25e4bdb7ae1f21d23bfee996e22736fc0ab44cfabedac82a757b1edc5623b9",
+          "dweb:/ipfs/QmQdWQvB6JCP9ZMbzi8EvQ1PTETqkcTWrbcVurS7DKpa5n"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/cryptography/EIP712.sol": {
+        "keccak256": "0x17fc4574e07105b0180ef61f1b3cacd1820a3d37f29a4af1018d0a253c6399b5",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://be46b3e1362dbcadbbb45ec92cdea849dceccea3e2795237f00c123aeae44746",
+          "dweb:/ipfs/QmSpyB8mud6xKiZaQnVtEPrxtTHGtyBgjs1PCYk4f2gesd"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/cryptography/MessageHashUtils.sol": {
+        "keccak256": "0x26670fef37d4adf55570ba78815eec5f31cb017e708f61886add4fc4da665631",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://b16d45febff462bafd8a5669f904796a835baf607df58a8461916d3bf4f08c59",
+          "dweb:/ipfs/QmU2eJFpjmT4vxeJWJyLeQb8Xht1kdB8Y6MKLDPFA9WPux"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/cryptography/SignatureChecker.sol": {
+        "keccak256": "0x0f39d23ae345355f0913470b15d00c0434754302077ac97cdc038b5c000fc5cc",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://d5ebc3233ff506c43e0f9960d2459403f878bbb63b7c71c318f16839564919ac",
+          "dweb:/ipfs/QmbctngFd6aQkHVqZeFAL3iHfw4X7wNgfsgUxX8t26U2m4"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol": {
+        "keccak256": "0x8891738ffe910f0cf2da09566928589bf5d63f4524dd734fd9cedbac3274dd5c",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://971f954442df5c2ef5b5ebf1eb245d7105d9fbacc7386ee5c796df1d45b21617",
+          "dweb:/ipfs/QmadRjHbkicwqwwh61raUEapaVEtaLMcYbQZWs9gUkgj3u"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/math/Math.sol": {
+        "keccak256": "0x1225214420c83ebcca88f2ae2b50f053aaa7df7bd684c3e878d334627f2edfc6",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://6c5fab4970634f9ab9a620983dc1c8a30153981a0b1a521666e269d0a11399d3",
+          "dweb:/ipfs/QmVRnBC575MESGkEHndjujtR7qub2FzU9RWy9eKLp4hPZB"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol": {
+        "keccak256": "0x195533c86d0ef72bcc06456a4f66a9b941f38eb403739b00f21fd7c1abd1ae54",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://b1d578337048cad08c1c03041cca5978eff5428aa130c781b271ad9e5566e1f8",
+          "dweb:/ipfs/QmPFKL2r9CBsMwmUqqdcFPfHZB2qcs9g1HDrPxzWSxomvy"
+        ]
+      },
+      "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol": {
+        "keccak256": "0xb1970fac7b64e6c09611e6691791e848d5e3fe410fa5899e7df2e0afd77a99e3",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://db5fbb3dddd8b7047465b62575d96231ba8a2774d37fb4737fbf23340fabbb03",
+          "dweb:/ipfs/QmVUSvooZKEdEdap619tcJjTLcAuH6QBdZqAzWwnAXZAWJ"
+        ]
+      },
+      "lib/v4-core/src/interfaces/IExtsload.sol": {
+        "keccak256": "0x80b53ca4907d6f0088c3b931f2b72cad1dc4615a95094d96bd0fb8dff8d5ba43",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://375c69148622aab7a3537d5fd37d373a8e9731022c8d87bdaee46233b0a99fe1",
+          "dweb:/ipfs/QmXFjdoYRxsA5B1kyuxEXgNf3FBoL1zPvy26Qy8EtpdFRN"
+        ]
+      },
+      "lib/v4-core/src/interfaces/IExttload.sol": {
+        "keccak256": "0xc6b68283ebd8d1c789df536756726eed51c589134bb20821b236a0d22a135937",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://294394f72dfc219689209f4130d85601dfd0d63c8d47578050d312db70f9b6c8",
+          "dweb:/ipfs/QmTDMQ3oxCGHgEBU48a3Lp4S1rRjc8vVCxkhE5ZNej1bsY"
+        ]
+      },
+      "lib/v4-core/src/interfaces/IHooks.sol": {
+        "keccak256": "0xc131ffa2d04c10a012fe715fe2c115811526b7ea34285cf0a04ce7ce8320da8d",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://3b212358897db5d99c21244d88f97b2e788527552cb430629b472a8cc6289aec",
+          "dweb:/ipfs/QmQtwV4dDe2RYk2ErLpaAX7U82jWh1L6Lw2HRuKDvBi84G"
+        ]
+      },
+      "lib/v4-core/src/interfaces/IPoolManager.sol": {
+        "keccak256": "0xbdab3544da3d32dfdf7457baa94e17d5a3012952428559e013ffac45d067038e",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://ce95ff864468e37c76adf71df061d4f3d6f3a5ec1f9bc3aea090463bc72798f4",
+          "dweb:/ipfs/QmSbWh1pLbz51yQF4HEu5NRhr8XVv9JYGEw1hq1HudAnCi"
+        ]
+      },
+      "lib/v4-core/src/interfaces/IProtocolFees.sol": {
+        "keccak256": "0x32a666e588a2f66334430357bb1e2424fe7eebeb98a3364b1dd16eb6ccca9848",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://85751d302125881f72e5f8af051c2d5d9b1f606ebaea8ca7d04fccdd27cc252d",
+          "dweb:/ipfs/QmeRwomeh9NWm6A6fgNA4KZPQZHPpdKsPQyYsHSFmvud7J"
+        ]
+      },
+      "lib/v4-core/src/interfaces/external/IERC20Minimal.sol": {
+        "keccak256": "0xeccadf1bf69ba2eb51f2fe4fa511bc7bb05bbd6b9f9a3cb8e5d83d9582613e0f",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://118757369892687b99ef46ce28d6861f62c098285bd7687a4f17f7e44e5f81de",
+          "dweb:/ipfs/QmUxqbYqQtcEwwFbb9e6BBMePEaSgN8C45v6RKubD4ib8d"
+        ]
+      },
+      "lib/v4-core/src/interfaces/external/IERC6909Claims.sol": {
+        "keccak256": "0xa586f345739e52b0488a0fe40b6e375cce67fdd25758408b0efcb5133ad96a48",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://e8c557b7e52abdbbd82e415a1acc27921446a7fd090b7d4877e52be72619547f",
+          "dweb:/ipfs/QmXE2KNPbXmGX8BQF3ei6zhzRTnhoTQg39XmqMnkhbr6QK"
+        ]
+      },
+      "lib/v4-core/src/libraries/BitMath.sol": {
+        "keccak256": "0x51b9be4f5c4fd3e80cbc9631a65244a2eb2be250b6b7f128a2035080e18aee8d",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://fe98bbd5498e912146b9319827fc63621eb66ff55d5baae0fa02a7a972ab8d1e",
+          "dweb:/ipfs/QmY5hCuyrtgsJtk4AavrxcvBkRrChfr4N6ZnhdC8roPpNi"
+        ]
+      },
+      "lib/v4-core/src/libraries/CustomRevert.sol": {
+        "keccak256": "0x111ed3031b6990c80a93ae35dde6b6ac0b7e6af471388fdd7461e91edda9b7de",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://c9ea883c98d6ae1829160d0977bb5195761cfd5bc81692d0a941f45717f594cd",
+          "dweb:/ipfs/QmZPwxzaeMNv536wzrAMrMswu7vMHuqPVpjcqL3YvCMoxt"
+        ]
+      },
+      "lib/v4-core/src/libraries/FixedPoint96.sol": {
+        "keccak256": "0xef5c3fd41aee26bb12aa1c32873cfee88e67eddfe7c2b32283786265ac669741",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://4de298d02f662a1c36c7be0a150f18c2a161408a5d3e48432e707efd01fac9a4",
+          "dweb:/ipfs/QmSiM4oeMmLVKmAtJXz2feYkv4R9ZcyBpkTRW5Nhw5KDyJ"
+        ]
+      },
+      "lib/v4-core/src/libraries/FullMath.sol": {
+        "keccak256": "0x4fc73a00817193fd3cac1cc03d8167d21af97d75f1815a070ee31a90c702b4c2",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://c3b2d66d36b1ad56b1ab6e2eb8a816740877b40b461c93f125e88621c8378e52",
+          "dweb:/ipfs/QmPGvMZzKQvNiWKd8aRzzdW7oAizwrMgcMtnaworDkVHFC"
+        ]
+      },
+      "lib/v4-core/src/libraries/SafeCast.sol": {
+        "keccak256": "0x42c4a24f996a14d358be397b71f7ec9d7daf666aaec78002c63315a6ee67aa86",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://c3db86e2ba3679105fc32edec656c70282e1fede6cab11217702443f6c26fa59",
+          "dweb:/ipfs/QmX4yaaSPdKQzYNRsezjTvZKsubzS8JRTEGFD3fPpTTCcj"
+        ]
+      },
+      "lib/v4-core/src/libraries/TickMath.sol": {
+        "keccak256": "0x4e1a11e154eb06106cb1c4598f06cca5f5ca16eaa33494ba2f0e74981123eca8",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://a79a57f7b240783b045168d1c4f774ac1812caf8f9a83cb6959a86b0b07b6c70",
+          "dweb:/ipfs/QmTb5kvxwDNW8jDuQaqdJ445cCFejNkUqEB17Bjo8UBiva"
+        ]
+      },
+      "lib/v4-core/src/types/BalanceDelta.sol": {
+        "keccak256": "0xa719c8fe51e0a9524280178f19f6851bcc3b3b60e73618f3d60905d35ae5569f",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://7436928dc9de35c6c7c5c636cb51adaf295cfd590da83b19a004ae33cbec9ef9",
+          "dweb:/ipfs/QmRJ9yZkUpzk4433GX3LgVVL8jwpbSYSUwXcucKisf3v4H"
+        ]
+      },
+      "lib/v4-core/src/types/BeforeSwapDelta.sol": {
+        "keccak256": "0x2a774312d91285313d569da1a718c909655da5432310417692097a1d4dc83a78",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://a2c7a0379955cff9c17ab9e61f95e42909aa5947c22740f86ce940d09856f782",
+          "dweb:/ipfs/QmaAuo8UBYXsGrVuKh8iRoAAdqwtg1jDq515cW1ZRP5m9K"
+        ]
+      },
+      "lib/v4-core/src/types/Currency.sol": {
+        "keccak256": "0x4a0b84b282577ff6f8acf13ec9f4d32dbb9348748b49611d00e68bee96609c93",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://45f9d62ab3d51b52957279e353853ba1547c3182c9a1e3d1846ada4a90263b01",
+          "dweb:/ipfs/QmS8NG84ccQS1yXVD8cv3eKX7J1UKxuJhbUfHTQR2opKF5"
+        ]
+      },
+      "lib/v4-core/src/types/PoolId.sol": {
+        "keccak256": "0x308311916ea0f5c2fd878b6a2751eb223d170a69e33f601fae56dfe3c5d392af",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://669c2cd7ac17690b5d8831e0bda72822376c3a04b36afed6d31df4d75fe60918",
+          "dweb:/ipfs/QmT6EpkxqU8VF3WsgrZ66F3s1cCQRffR95z1HDYZz7ph6y"
+        ]
+      },
+      "lib/v4-core/src/types/PoolKey.sol": {
+        "keccak256": "0xf89856e0580d7a4856d3187a76858377ccee9d59702d230c338d84388221b786",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://6f3118fa189025695c37fdf0bdd1190f085ad097484d3c88cf4c56d1db65f639",
+          "dweb:/ipfs/QmamXpgtB8GV1CaFLvqefPWSoikLDhMk1yU4heBnVzU8gi"
+        ]
+      },
+      "lib/v4-core/src/types/PoolOperation.sol": {
+        "keccak256": "0x7a1a107fc1f2208abb2c9364c8c54e56e98dca27673e9441bed2b949b6382162",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://4ad2470383bc5595d5af17840c64971f457adac68895a4db41ba5c71a4478e07",
+          "dweb:/ipfs/QmdwKhBHDZFuqXrR2BfDBD9r7rB2ULGQBznsajRTkTmL4c"
+        ]
+      },
+      "src/CabalGate.sol": {
+        "keccak256": "0x7279dd1ea5defda2f508807bd4bfbd404132556d87f513782ec545ecbd101fc2",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://6c696da424e516e3321a42623945ab643ebeae7af2ba8c29b6140566ec44f9ac",
+          "dweb:/ipfs/QmZHhs3cW3gVH4SM7oXJVSHJviJNzc7kAmJePNAgfAki64"
+        ]
+      },
+      "src/Letterbox.sol": {
+        "keccak256": "0xdb6cf816845719174b771e79e1d91619f451d82dd76a27e629afe35b39f30568",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://9b5d93df221914d9221cd25c446576a225e5b908322bef5d37dedebf1af8fbac",
+          "dweb:/ipfs/QmYLmKageN7c1tqRWvVi1wNDikm7FFLrm6v58YA5oXM1xp"
+        ]
+      },
+      "src/OracleAttestation.sol": {
+        "keccak256": "0x67f9c2d3f94d2f79ed46b66d697cf8ccb28affd39259754d5ab3eb66331ad82f",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://69ab9f1fa77437eccbacf6e1b28bffc5da3f849f92845b29ed1470a696fd2b92",
+          "dweb:/ipfs/QmecajT2UEiVc65WncW5QB1wkapVjNEg2y911dzCmd9TEH"
+        ]
+      },
+      "src/interfaces/IPleaParts.sol": {
+        "keccak256": "0x1180159128ab7b1f251f42b8c571c9f3107717d71b26ad5ca37d0916c4f5c841",
+        "license": "MIT",
+        "urls": [
+          "bzz-raw://bca4c3e9fe88ee1ab8722cf64edee7d568c74b186bbd2b2615b2585a4cce226b",
+          "dweb:/ipfs/QmaPcmoHk8ecKdTrfY5wGYG1JbKhUriyebsBBkJvfXe5KH"
+        ]
+      }
+    },
+    "version": 1
+  },
+  "matchId": "57445008",
+  "creationMatch": "match",
+  "runtimeMatch": "match",
+  "verifiedAt": "2026-10-28T22:07:01Z",
+  "match": "match",
+  "chainId": "1",
+  "address": "0x00423EbaEd03445Fc1452d9A79A51E3C0DFdab5f"
+}

@@ -1,0 +1,1 @@
+PASS: Docker Compose 2.40.3 configuration parses with env.example substituted for the operator .env path. Postgres publishes no port; app binds 127.0.0.1; pgdata persists; indexer depends on healthy Postgres. No containers were started.

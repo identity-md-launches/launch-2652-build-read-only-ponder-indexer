@@ -1,0 +1,61 @@
+{
+  "commit": "42e0f855875786a953e945e528e9d7f2724a5352",
+  "results": [
+    {
+      "contract": "PLEA",
+      "source": "src/PLEA.sol",
+      "expected": "0x81bc0d3aa104de74a60ec3e06193bca4ff51d0e54757ba1191e3eb9919e4365d",
+      "actual": "0x81bc0d3aa104de74a60ec3e06193bca4ff51d0e54757ba1191e3eb9919e4365d",
+      "match": true
+    },
+    {
+      "contract": "CabalGate",
+      "source": "src/CabalGate.sol",
+      "expected": "0x664ed571f851bd599dd63fe9143eacedd655af318b6d57f49926a53713621df3",
+      "actual": "0x664ed571f851bd599dd63fe9143eacedd655af318b6d57f49926a53713621df3",
+      "match": true
+    },
+    {
+      "contract": "Seasons",
+      "source": "src/Seasons.sol",
+      "expected": "0xa26a131897a2882196cf9734490fcf0d2979650202337c592b6a2f52f1722ce7",
+      "actual": "0xea01396a7a53a22c7df3b3710ab8cdda70c71306e49592bd1134fae637b7f210",
+      "match": false
+    },
+    {
+      "contract": "PleaDistributor",
+      "source": "src/PleaDistributor.sol",
+      "expected": "0x84695097618c4f1c4b3a1f23fc78486aada20ef8753a4dafb59d65c7fb53ad59",
+      "actual": "0x84695097618c4f1c4b3a1f23fc78486aada20ef8753a4dafb59d65c7fb53ad59",
+      "match": true
+    },
+    {
+      "contract": "PleaLaunch",
+      "source": "src/PleaLaunch.sol",
+      "expected": "0xca98520670483245bcc8501fdf2c1f92a74a353fdb3992dd0977dc7c2c277649",
+      "actual": "0xca98520670483245bcc8501fdf2c1f92a74a353fdb3992dd0977dc7c2c277649",
+      "match": true
+    },
+    {
+      "contract": "Letterbox",
+      "source": "src/Letterbox.sol",
+      "expected": "0xdb6cf816845719174b771e79e1d91619f451d82dd76a27e629afe35b39f30568",
+      "actual": "0xdb6cf816845719174b771e79e1d91619f451d82dd76a27e629afe35b39f30568",
+      "match": true
+    },
+    {
+      "contract": "Tribunal",
+      "source": "src/Tribunal.sol",
+      "expected": "0xeab57c0a57733e6dad9401d5ee2439ea7423e2133a0a270aa9f4624998f4da6f",
+      "actual": "0xeab57c0a57733e6dad9401d5ee2439ea7423e2133a0a270aa9f4624998f4da6f",
+      "match": true
+    },
+    {
+      "contract": "PleaHook",
+      "source": "src/PleaHook.sol",
+      "expected": "0x3ec6deb2da7a0ae30ffef8db915ab6527bf6243a8544b0327247fab78c0cbefb",
+      "actual": "0x3ec6deb2da7a0ae30ffef8db915ab6527bf6243a8544b0327247fab78c0cbefb",
+      "match": true
+    }
+  ]
+}

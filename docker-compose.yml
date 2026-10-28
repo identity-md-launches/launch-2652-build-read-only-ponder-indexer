@@ -1,0 +1,33 @@
+services:
+  postgres:
+    image: postgres:17-bookworm
+    environment:
+      POSTGRES_USER: plea
+      POSTGRES_DB: plea
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set a URL-safe POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U plea -d plea"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+    # No host ports: PostgreSQL is reachable only inside the Compose network.
+  indexer:
+    build: .
+    env_file: .env
+    environment:
+      DATABASE_PRIVATE_URL: ""
+      DATABASE_URL: postgresql://plea:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}@postgres:5432/plea
+      PORT: ${PORT:-42069}
+    ports:
+      - "127.0.0.1:${APP_PORT:-42069}:${PORT:-42069}"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    stop_grace_period: 60s
+
+volumes:
+  pgdata:
